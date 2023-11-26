@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+    <link rel="stylesheet" href="<%= frontend %>/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%= frontend %>/css/custom.css?v=2">
+
+    <title>Rocket - Criar conta</title>
+</head>
+<body>
+
+    <div class="container-fluid mt-3 pb-4">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-3 col-12">
+                <div class="m-1 row balance">
+                    <div class="pt-2 col-lg-12 col-md-6 col-6 logo d-flex justify-content-center">
+                        <h4>Rocket - Criar conta <img style="transform: rotate(0.26turn);margin-left: 25px;width: 45px;" src="https://i.postimg.cc/6qGrrNbV/rocket.png" alt=""> </h4>
+                    </div>
+                </div>
+            </div>
+           </div>
+        
+           <div class="row mt-2 d-flex justify-content-center">
+               <div class="col-md-3 col-12">
+                    <div class="row m-1">
+
+                        <div class="card pt-4 card-login">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <input type="text" id="username" placeholder="Username" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="password" placeholder="Password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <button id="create-btn">Criar</button>
+                                </div>
+                                <div class="form-group">
+                                    <p class="mt-2">
+                                        Já tem conta? <a href="login">Acessar agora</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+               </div>
+           </div>
+    </div>
+
+</body>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js" ></script>
+ <script src="<%= frontend %>/js/login.js"></script>
+
+</html>

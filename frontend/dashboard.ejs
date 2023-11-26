@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+    <link rel="stylesheet" href="<%= frontend %>/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%= frontend %>/css/custom.css?v=2">
+
+    <title>Rocket</title>
+</head>
+<body>
+
+    <input type="hidden" id="tagi" value="<%= tokenUser %>">
+    <input type="hidden" id="vl_apostado" value="<%= value_init %>">
+    <input type="hidden" id="continue_aposta" value="<%= continue_aposta %>">
+
+    <div class="container-fluid mt-3 pb-4">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="m-1 row balance">
+                    <div class="col-md-6 col-6 pt-1 logo d-flex justify-content-start">
+                        <h2><i class="fa fa-rocket"></i> Rocket  </h2>
+                    </div>
+                    <div class="balance_user col-md-6 col-6 value d-flex justify-content-end">
+                        <%= userBalance %>
+                    </div>
+                </div>
+            </div>
+           </div>
+
+           <div class="row mt-2">
+            <div class="text-secondary col-md-6 col-12 d-flex justify-content-md-start justify-content-end mb-2">
+                <img style="vertical-align: middle; width: 30px;height: 30px;" src="<%= frontend %>/images/profile.png" alt=""> &nbsp; <%= userName %>
+            </div>
+                <div class="col-md-6 col-12 d-flex justify-content-end">
+                    <button class="btn-withdraw" >Sacar <i class="fa-solid fa-money-bill-transfer"></i></button>
+                    <button class="btn-deposit" onclick="$('.modal_deposit').show(100);" >Depositar <i class="fa-solid fa-wallet"></i></button>
+                    <button class="btn-logout" onclick="logout();" >Sair <i class="fa-solid fa-right-from-bracket"></i> </button>
+                </div>
+           </div>
+        
+           <div class="row mt-2">
+               <div class="col-md-12">
+                    <div class="row m-1">
+                        
+                        <div class="order-2 results col-md-3 col-12">
+
+                            <div class="mt-3 info-apostas">
+                                <span>Apostas: 0</span>
+                                <span>Total: R$ 0,00</span>
+                            </div>
+
+                            <p class="text-center">
+                                Nenhuma aposta
+                            </p>
+                          
+                        </div>
+
+                        <div class="order-1 p-0 col-md-9 col-12">
+                            <div class="game">
+                                <div class="chart">
+                                    <div id="odd_view">0.00x</div>
+                                </div>
+                                <div class="olds_odds">
+                                    <ul>
+                                        <span>Carregando...</span>
+                                    </ul>
+                                </div>
+                                <div class="notification success">
+                                    <div class="notification_message">
+                                        <span class="notification_progressbar"></span>
+                                        <span class="notification_content">
+                                            <span class="notification_title"></span>
+                                             <span class="notification_message_content"></span>
+                                        </span>
+                                        <span class="notification_icon"> <i class="fa-regular"></i> </span>
+                                    </div>
+                                </div>
+                                <div class="btns-init">
+                                    <div class="input_vl">
+                                        <input type="text" id="vl_aposta" placeholder="0.00" >
+                                    </div>
+                                    <div class="button_vl">
+                                        <button id="btn-apostar" >Apostar</button>
+                                        <button id="btn-await-aposta" >Aguarde</button>
+                                        <button id="btn-cash-out" >Retirar ( <span id="vl_at_cash_out" >R$ 10,00</span> )</button>
+                                    </div>
+                                    <div class="vls_fast">
+                                        <ul>
+                                            <li data-v="2.00" >2</li>
+                                            <li data-v="10.00" >10</li>
+                                            <li data-v="20.00" >20</li>
+                                            <li data-v="30.00" >30</li>
+                                            <li data-v="40.00" >40</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="crash">
+                                    <h3>Houston! Foguete fora de alcance.</h3>
+                                    <img src="<%= frontend %>/images/rocket-crash.png" alt="">
+                                    <p>
+                                        Prepare-se para decolar novamente.
+                                    </p>
+                                    <h4>Próxima rodada em: <span id="countNewR" ><%= sec_init %></span> segundos </h4>
+                                </div>
+                                <iframe id="iframe_game" src="<%= frontend %>/game/rocket.html" frameborder="0"></iframe>
+                            </div>
+                        </div>
+
+
+                    </div>
+               </div>
+           </div>
+    </div>
+
+    <div class="modal_deposit">
+        <div class="modal_deposit_content">
+            <i onclick="$('.modal_deposit').hide(100);" class="fa fa-times close"></i>
+            <h4>Digite um valor</h4>
+            <input type="text" id="vl_deposit" placeholder="0.00" id="">
+            <button onclick="depositInit();" >Continuar</button>
+            <p>
+                <i class="fa fa-lock"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi in nesciunt saepe. Eaque nesciunt pariatur ipsam reiciendis hic repellendus.
+            </p>
+        </div>
+    </div>
+
+</body>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+ <script src="<%= frontend %>/js/rocket.js"></script>
+
+</html>

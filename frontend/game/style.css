@@ -1,0 +1,226 @@
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    
+    
+}
+
+body {
+    min-height: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    background: url(https://i.postimg.cc/bNKJvqj1/space1.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+    
+    
+    
+}
+
+#particle-canvas {
+    top: 0;
+    position: absolute;
+    height: 100vh;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.shapes {
+    overflow: hidden;
+    z-index: 999;
+}
+.shapes .rocket {
+    transform: rotate(113deg);
+    z-index: 100 !important;
+    
+}
+.shapes .rocket-holder {
+    animation:up-down infinite ;    
+    animation-direction: alternate;
+    animation-duration: 150ms;
+    z-index: 100 !important;
+    position: absolute;
+    top: 35%;
+    left:40%;
+}
+
+ @keyframes up-down {
+    100% {transform: translateY(0px);}
+   0% {transform: translateY(2px);}
+} 
+.shapes .shape0 {
+    position: absolute;
+    background: beige;
+    border-radius: 80%;
+    z-index: 8;
+    right: -2000px;
+    animation: rocket ;
+    animation-iteration-count: 3;
+
+}
+
+
+
+.shapes .shape1 {
+    height: 3px;
+    width: 30px;   
+    top: 50%;
+ 
+    animation-duration: 4s;
+    animation-delay: 700ms;  
+}
+.shapes .shape2 {
+    height: 3px;
+    width: 60px;
+    top: 60%;  
+    
+    animation-duration: 4s;
+    animation-delay: 500ms;  
+}
+
+.shapes .shape3 {
+    height: 3px;
+    width: 30px;
+    top: 45%;  
+   
+    animation-duration: 4s;
+    animation-delay: 150ms;
+
+}
+
+
+
+.shapes .shape4 {
+    height: 3px;
+    width: 10px;
+    top: 60%;    
+    
+    animation-duration: 4s;
+    animation-delay: 100ms;
+}
+
+.shapes .shape5 {
+    height: 3px;
+    width: 30px;
+    top: 50%;    
+    animation-duration: 4s;
+    
+}
+
+
+@keyframes rocket {
+    0% {transform:translateX(0px)}
+    100% {transform:translateX(-4000px)}
+}
+
+
+
+
+.planets {
+    position: absolute;
+     right: -2000px; 
+     z-index: -1;
+     animation: rocket ;
+    animation-iteration-count: 1;
+    animation-duration: 15s;  
+   
+}
+
+.planet1 {
+  
+    top:20%;    
+    animation-delay: 50ms;
+}
+.planet2 {
+    
+    top:2%;   
+    animation-delay: 2s;
+}
+.planet4 {
+    
+    bottom:5%;
+    animation-delay: 3s;
+}
+
+.planet5 {
+    
+    bottom:30%;
+    animation-delay: 5s;
+}
+
+.planet6 {
+    
+    top:20%;
+    animation-delay: 8s;
+}
+.planet7 {
+    
+    bottom:30%;
+    animation-delay: 9s;
+}
+.planet8 {
+    width: 400px;
+    bottom:-30%;
+    left: -1000;
+    animation-duration:40s ;
+    animation-delay: 1s;
+}
+.planet9 {
+    
+    bottom:10%;
+    animation-delay: 6s;
+}
+
+
+
+.final {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    animation:final 25s normal ;
+    z-index: 100;
+    /* animation-delay: 15s; */
+}
+
+@keyframes final {
+    0% {transform:translateX(5000px)}
+    100% {transform:translateX(0px)}
+}
+
+
+.final img {
+    position: absolute;
+    
+} 
+
+.final .human {
+    width: 100px;
+    top: 0px;
+    animation:up-down-final  infinite ;    
+    animation-direction: alternate;
+    animation-duration: 1s;
+    
+}
+.final .planet10 {
+    animation:up-down-final  infinite ;    
+    animation-direction: alternate;
+    animation-duration: 2s;
+    bottom: 20%;
+}
+.final .planet11 {
+    animation:up-down-final  infinite ;    
+    animation-direction: alternate;
+    animation-duration: 2s;
+    animation-delay: 2s;
+   top: 10%;
+}
+
+@keyframes up-down-final {
+    100% {transform: translateY(0px);}
+   0% {transform: translateY(10px);}
+} 

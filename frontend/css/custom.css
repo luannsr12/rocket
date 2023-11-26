@@ -1,0 +1,535 @@
+body{
+    background-color: #030014;
+}
+
+.results::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+  
+  .results::-webkit-scrollbar-track {
+    background: #030014;
+  }
+  
+  .results::-webkit-scrollbar-thumb {
+    background-color: #030014;
+    border-radius: 20px;
+    border: 3px solid #030014;
+  }
+
+.balance{
+    background-color: #170e4d;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.balance .value{
+    font-size: 28px;
+}
+
+.results{
+    background-color: #170e4d;
+    overflow: scroll;
+    max-height: 400px;
+    color: #fff;
+}
+
+.results .info-table-apostas{
+    margin-top: 20px;
+    display: flex;
+}
+
+.results .info-table-apostas span{
+    flex: 1;
+    font-size: 11px;
+}
+
+.results ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding-left: 0!important;
+}
+
+.results ul li{
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-radius: 12px;
+    margin-bottom: 2px;
+    display: flex;
+}
+
+.results ul .headApostasOn{
+    background-color: transparent!important;
+    font-size: 11px;
+    color: #a1a1a1;
+    text-transform: uppercase;
+}
+
+.results ul .active{
+    background-color: rgb(0 255 181 / 32%)!important;
+    border: 1px solid #00ffdc;
+}
+.results ul li span img{
+    width: 25px;
+}
+
+.results > ul > li > span{
+    margin-right: 20px;
+    flex: 1;
+}
+
+.results ul li:nth-child(odd) {
+	background-color:#030014;
+}
+.results ul li:nth-child(even) {
+    background-color:#100746;
+}
+.results > ul > li > .odd > span{
+    padding: 0px;
+    width: 100%;
+    position: relative;
+    display: block;
+    text-align: center;
+    border-radius: 100px;
+}
+.results .info-apostas{
+    display: flex;
+}
+.results .info-apostas span{
+    display: flex;
+    flex: 1;
+}
+
+.game iframe{
+    width: 100%;
+    height: 400px;
+    border: none;
+}
+
+.game{
+    position: relative;
+    overflow: hidden;
+}
+
+.game .chart{
+    position: absolute;
+    height: 118px;
+    width: 270px;
+    background-color: rgb(0 5 20 / 76%);
+    z-index: 9999;
+    top: 34px;
+    border-radius: 0px 0px 79px 0px;
+}
+.game .chart #odd_view{
+    font-size: 60px;
+    text-align: center;
+    color: #fff;
+    justify-content: center;
+    display: flex;
+    vertical-align: middle;
+}
+.game .olds_odds{
+    position: absolute;
+    justify-content: end;
+    display: flex;
+    right: 20px;
+    background-color: #030014;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 5px;
+    z-index: 9;
+}
+
+.game .olds_odds ul{
+    list-style: none;
+    display: flex;
+    margin-top: 4px!important;
+    margin-bottom: 4px!important;
+    flex-direction: row-reverse;
+}
+
+.game .olds_odds ul li{
+    margin-right: 10px;
+    padding: 2px 10px 0px 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+}
+
+.odd_min{
+    border: 1px solid #20ff00;
+    background-color: #acff0096;
+}
+
+.odd_green{
+    border: 1px solid #01f240;
+    background-color: rgb(49 219 4 / 63%);
+}
+
+.odd_red{
+    border: 1px solid #f20101;
+    background-color: rgb(173 4 4 / 63%);
+}
+
+.odd_purple{
+    border: 1px solid #b701f2;
+    background-color: rgb(104 4 219 / 63%);
+}
+
+.odd_blue{
+    border: 1px solid #01f1f2;
+    background-color: rgb(4 216 219 / 63%);
+}
+
+.odd_black{
+    border: 1px solid #ffffff;
+    background-color: rgb(0 0 0);
+}
+
+.game .crash{
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    background-color: #030014bd;
+    padding-top: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+.game .crash img{
+    width: 200px;
+}
+
+.game .notification{
+    position: absolute;
+    right: -100%;
+    top: 50px;
+    background-color: #170e4d;
+    z-index: 9999;
+    border-radius: 20px 0px 0px 0px;
+    color: #fff;
+    padding: 20px;
+    border-right: 10px solid #030014;
+    opacity: 0;
+}
+
+.game .notification .notification_message{
+    position: relative;
+    display: flex;
+}
+
+.game .notification .notification_message .notification_content{
+    flex-direction: column;
+    display: flex;
+}
+.game .notification .notification_message .notification_content .notification_title{
+    font-size: 20px;
+    font-weight: 700;
+}
+.game .notification .notification_message .notification_content .notification_message_content{
+    font-weight: lighter;
+}
+.game .notification .notification_progressbar{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    height: 4px;
+    width: 100%;
+    transition: width 2s;
+}
+
+.game .notification.error .notification_progressbar{
+    background-color: red;
+}
+
+.game .notification .notification_icon{
+    margin: 10px -10px 0px 10px;
+    font-size: 25px;
+}
+ 
+.game .notification.success .notification_progressbar{
+    background-color: #acff00;
+}
+
+.game .btns-init{
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+    z-index: 999;
+    background-color: #170e4d;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.game .btns-init .vls_fast ul li{
+    cursor: pointer;
+}
+
+.game .btns-init .input_vl input{
+    border: none;
+    padding: 4px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: #030014;
+    color: #ffff;
+    text-align: center;
+    margin-bottom: 5px;
+    z-index: 1;
+    position: relative;
+    width: 100%;
+}
+
+.game .btns-init .button_vl button{
+    width: 100%;
+    border-radius: 8px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+}
+
+
+.game .btns-init .button_vl #btn-apostar{
+    background-color: #acff00;
+    color: #030014;
+    -webkit-box-shadow: 0px 0px 32px -6px rgba(172 255 0);
+    -moz-box-shadow: 0px 0px 32px -6px rgba(172 255 0);
+    box-shadow: 0px 0px 32px -6px rgb(172 255 0);
+}
+
+.game .btns-init .button_vl #btn-await-aposta{
+    background-color: #ff6600;
+    color: #fff;
+    -webkit-box-shadow: 0px 0px 32px -6px rgb(255, 123, 0);
+    -moz-box-shadow: 0px 0px 32px -6px rgb(255, 123, 0);
+    box-shadow: 0px 0px 32px -6px rgb(255, 123, 0);
+}
+
+.game .btns-init .button_vl #btn-cash-out{
+    background-color: #0feb8d;
+    color: #fff;
+    -webkit-box-shadow: 0px 0px 32px -6px rgb(15 235 141);
+    -moz-box-shadow: 0px 0px 32px -6px rgb(15 235 141);
+    box-shadow: 0px 0px 32px -6px rgb(15 235 141);
+}
+
+
+.game .btns-init .vls_fast{
+    margin-top: 30px;
+}
+
+.game .btns-init .vls_fast ul{
+    list-style: none;
+    display: flex;
+    padding-left: 0px!important;
+    margin-top: 5px;
+}
+
+.game .btns-init .vls_fast ul li{
+    flex: 1;
+    background-color: #030014;
+    margin-left: 3px;
+    border-radius: 100px;
+    text-align: center;
+    color: #fff;
+}
+
+#btn-cash-out{
+    display:none;
+}
+
+#btn-await-aposta{
+    display:none;
+}
+
+
+.card-login > .card-body > .form-group > button{
+    background-color: #acff00;
+    width: 100%;
+    margin-top: 10px;
+    height: 45px;
+    font-size: 20px;
+    color: #030014;
+    border: 1px solid #030014;
+    border-radius: 8px;
+}
+
+.card-login > .card-body > .form-group > input{
+    margin-bottom: 5px;
+}
+
+.card-login > .card-body > .form-group > p > a{
+    text-decoration: none;
+    color: #030014;
+    font-weight: 700;
+}
+
+
+.modal_deposit{
+    display: none;
+    position: absolute;
+    z-index: 999999;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #070014e8;
+    padding: 10px;
+}
+
+.modal_deposit .modal_deposit_content{
+    margin: 0 auto;
+    width: 400px;
+    margin-top: 100px;
+    background-color: #060014;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.modal_deposit .modal_deposit_content h4{
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.modal_deposit .modal_deposit_content .close{
+    justify-content: right;
+    display: flex;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal_deposit .modal_deposit_content input{
+    width: 100%;
+    height: 40px;
+    padding-left: 5px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    font-size: 22px;
+}
+
+.modal_deposit .modal_deposit_content button{
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #acff00;
+    background-color: #acff00;
+    height: 40px;
+}
+
+.modal_deposit .modal_deposit_content p{
+    margin-top: 10px;
+    font-size: 11px;
+    color: #525252;
+}
+
+.btn-deposit{
+    height: 30px;
+    padding: 0px 20px 0px 20px;
+    margin-right: 10px;
+    border-radius: 8px;
+    background-color: #acff00;
+    border: 1px solid #acff00;
+    -webkit-box-shadow: 0px 0px 15px -6px rgba(172 255 0);
+    -moz-box-shadow: 0px 0px 15px -6px rgba(172 255 0);
+    box-shadow: 0px 0px 15px -6px rgb(172 255 0);
+    color: #030014;
+}
+.btn-withdraw{
+    height: 30px;
+    padding: 0px 20px 0px 20px;
+    margin-right: 10px;
+    border-radius: 8px;
+    background-color: #430391;
+    border: 1px solid #7503ff;
+    -webkit-box-shadow: 0px 0px 15px -6px rgba(172 255 0);
+    -moz-box-shadow: 0px 0px 15px -6px rgba(172 255 0);
+    box-shadow: 0px 0px 15px -6px rgb(115 0 255);
+    color: #ffffff;
+}
+.btn-logout{
+    padding: 0px 20px 0px 20px;
+    height: 30px;
+    border: none;
+    background-color: #f50131;
+    color: #fff;
+    font-weight: 100;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 0px 15px -6px rgb(245 1 49);
+    -moz-box-shadow: 0px 0px 15px -6px rgb(245 1 49);
+    box-shadow: 0px 0px 15px -6px rgb(245 1 49);
+}
+
+@media only screen and (max-width: 400px) {
+    .btn-withdraw{
+        font-size: 12px;
+    }
+    .btn-deposit{
+        font-size: 12px;
+    }
+    .btn-logout{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .results ul{
+        font-size: 13px;
+    }
+    .results ul li span img{
+        width: 20px;
+    }
+
+    .game{
+        height: 500px;
+    }
+    .game .olds_odds{
+        right: 0;
+    }
+    .game .btns-init{
+        width: 100%;
+        right: 0;
+    }
+    .game .chart{
+        border-radius: 0px;
+        width: 100%;
+        height: 95px;
+    }
+
+    .game .crash{
+        padding-top: 142px;
+        background-color: #030014f2;
+    }
+
+    .game .crash h3{
+        font-size: 20px;
+    }
+    
+    .game .crash img{
+        width: 83px;
+    }
+    .game .crash p{
+        top: 0px;
+        position: relative;
+    }
+
+    .game .crash h4{
+        top: -18px;
+        position: relative;
+    }
+
+    .modal_deposit .modal_deposit_content{
+        width: 90%;
+    }
+
+    .game .notification{
+        top: 150px;
+    }
+  }
+
+
