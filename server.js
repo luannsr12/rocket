@@ -1,12 +1,11 @@
+require('dotenv').config();
+
 const express = require('express');
 const http = require('http');
 const axios = require('axios');
 const socketIo = require('socket.io');
 const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
-
-
-require('dotenv').config();
 
 const saltRounds = 10;
 
